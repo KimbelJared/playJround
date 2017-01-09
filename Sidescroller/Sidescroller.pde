@@ -10,9 +10,12 @@ void setup()
 void draw()
 {
   background(51);
-  player.show();
   
-  
-  
-  
+  player.update();
+  player.show(); 
+  if (keyPressed) 
+  {
+    PVector up = new PVector(0, -5);
+    player.applyForce(up);
+  }
 }
