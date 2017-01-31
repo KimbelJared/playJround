@@ -39,7 +39,6 @@ class player
     stroke(255);
     fill(255);
     rectMode(CENTER);
-    rect(pos.x, pos.y, size, size);
-    //triangle(pos.x pos.y
+    rect(pos.x, pos.y, size, size, 45);
   }
 }
