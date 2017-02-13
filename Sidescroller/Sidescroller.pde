@@ -1,21 +1,27 @@
 player player;
-//ArrayList<rock> rocks = new ArrayList<rock>();
+ArrayList<rock> rocks = new ArrayList<rock>();
 rock rock;
 void setup() 
 {
   size(800, 400);
   noStroke();
   player = new player(); 
-  rock = new rock();
+  for(int i = 0; i < 25; i++)
+  {
+      rocks.add(new rock());
+  }
 }
 
 void draw()
 {
   background(51);
   
-  rock.show();
-  rock.update();
-  
+  for (rock currRock : rocks)
+  {
+    currRock.show();
+    currRock.update();
+  } 
+
   player.update();
   player.show(); 
   

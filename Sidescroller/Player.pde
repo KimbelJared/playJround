@@ -2,6 +2,7 @@ PVector gravity = new PVector(0, 0.5);
 
 class player 
 {
+  Boolean alive = true;
   PVector pos;
   PVector vel;
   PVector acc;
@@ -31,6 +32,12 @@ class player
     if (pos.y > height) 
     {
       pos.y = height;
+      alive = false;
+    }
+    if (pos.y <= 0)
+    {
+      pos.y = 0;
+      alive = false;
     }
   }
 
@@ -39,6 +46,6 @@ class player
     stroke(255);
     fill(255);
     rectMode(CENTER);
-    rect(pos.x, pos.y, size, size, 45);
+    rect(pos.x, pos.y, size, size, 10);
   }
 }

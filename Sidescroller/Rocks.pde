@@ -4,7 +4,7 @@ class rock
   float x, y, vel = 5;
   rock()
   {
-    x = width;
+    x = random(width-50, width+500);
     y = random(0+size, height-size);
   }
   
@@ -19,7 +19,11 @@ class rock
   void update()
   {
     x -= vel;
-    
+    if( x <= 0 )
+    {
+       x = random(width-50, width+50);
+       y = random(0+size, height-size);
+    } 
   }
     
 }
