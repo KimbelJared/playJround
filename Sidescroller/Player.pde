@@ -7,7 +7,7 @@ class player
   PVector vel;
   PVector acc;
   float size = 30;
-
+   
   player() 
   {
     pos = new PVector(50, height/2);
@@ -43,9 +43,11 @@ class player
 
   void show() 
   {
-    stroke(255);
-    fill(255);
-    rectMode(CENTER);
-    rect(pos.x, pos.y, size, size, 10);
+    //stroke(255);
+    //fill(255);
+    //rectMode(CENTER);
+    //rect(pos.x, pos.y, size, size, 10);
+    imageMode(CENTER);
+    image(playerImage, pos.x, pos.y);
   }
 }
