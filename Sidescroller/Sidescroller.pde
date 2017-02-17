@@ -2,8 +2,7 @@ player player;
 rock rock;
 ArrayList<rock> rocks = new ArrayList<rock>();
 
-PImage playerImage;
-ArrayList<PImage> rockAssets = new ArrayList<PImage>();
+PImage playerImage, rockImage;
 
 
 void setup() 
@@ -16,6 +15,7 @@ void setup()
       rocks.add(new rock());
   }
    playerImage = loadImage("assets/player.png");
+   rockImage = loadImage("assets/rock.png");
 }
 
 void draw()
