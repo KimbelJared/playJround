@@ -10,10 +10,11 @@ class rock
   
   void show()
   {
-    stroke(255);
-    fill(255);
-    ellipse(x, y, size, size);
-    
+    //stroke(255);
+    //fill(255);
+    //ellipse(x, y, size, size);
+    imageMode(CENTER);
+    image(rockImage, x, y);
   }
   
   void update()
