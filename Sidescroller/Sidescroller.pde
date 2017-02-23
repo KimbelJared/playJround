@@ -14,7 +14,7 @@ void setup()
   {
       rocks.add(new rock());
   }
-   playerImage = loadImage("assets/player.png");
+   playerImage = loadImage("assets/player.gif");
    rockImage = loadImage("assets/rock.png");
 }
 
