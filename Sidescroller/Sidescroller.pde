@@ -21,7 +21,6 @@ void setup()
 void draw()
 {
   background(51);
-  
   for (rock currRock : rocks)
   {
     currRock.show();
