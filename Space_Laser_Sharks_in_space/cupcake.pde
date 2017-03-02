@@ -1,11 +1,12 @@
 class cupcake
 {
   float size = 10;
-  float x, y, vel = 5;
+  float x, y, a, vel = .01;
   cupcake()
   {
     x = random(-width/2, width/2);
     y = random(-height/2, height/2);
+    a = random(0,359);
   }
   
   void show()
@@ -13,19 +14,14 @@ class cupcake
     stroke(255);
     fill(255);
     ellipse(x, y, size, size);
-
+    rotate(a);
   }
   
   void update()
   {
-    if(x < 0)
-    {
-      x += vel;
-    }
-    else if (x > 0)
-    {
-      x -= vel;
-    }
+    x = lerp(x, 0, vel);
+    y = lerp(y, 0, vel);
+    
     float d = dist(0, 5, x, 5);
     
     if( d < 5 )
@@ -34,5 +30,4 @@ class cupcake
       y = random(-height/2, height/2);
     } 
   }
-    
 }
