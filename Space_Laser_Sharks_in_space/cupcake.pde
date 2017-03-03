@@ -1,20 +1,24 @@
 class cupcake
 {
   float size = 10;
-  float x, y, a, vel = .01;
+  float x, y, vel = .01;
   cupcake()
   {
     x = random(-width/2, width/2);
     y = random(-height/2, height/2);
-    a = random(0,359);
   }
   
   void show()
   {
-    stroke(255);
-    fill(45);
+    pushMatrix();
+    
+    colorMode(RGB, 255, 255, 255);
+    noStroke();
+    fill(211, 197, 227);
     ellipse(x, y, size, size);
-    //rotate(a);
+    
+    popMatrix();
+    
   }
   
   void update()
@@ -22,9 +26,9 @@ class cupcake
     x = lerp(x, 0, vel);
     y = lerp(y, 0, vel);
     
-    float d = dist(0, 5, x, 5);
+    float d = dist(0, 0, x, y);
     
-    if( d < 5 )
+    if( d < shark.size)
     {
       x = random(-width/2, width/2);
       y = random(-height/2, height/2);

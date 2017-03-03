@@ -1,13 +1,17 @@
-class Shark
+class shark
 {
-  float x = 0,  y = 0, w = 20, h = 20;
+  float x = 0,  y = 0, size = 20;
   
    void show()
    {
       pushMatrix();
-      fill(23);
+      
+      colorMode(RGB, 255, 255, 255);
+      noStroke();
+      fill(0, 115, 252);
       rectMode(CENTER); 
-      rect(x, y, w, h);
+      rect(x, y, size, size);
+      
       popMatrix();
    }
   
