@@ -2,6 +2,7 @@
 
 ArrayList<cupcake> cupcakes = new ArrayList<cupcake>();
 
+Shark Shark;
 
 void setup() 
 {
@@ -10,6 +11,7 @@ void setup()
   {
       cupcakes.add(new cupcake());
   }
+  Shark = new Shark();
 }
 
 void draw()
@@ -22,5 +24,5 @@ void draw()
     currCake.show();
     currCake.update();
   } 
-  
+  Shark.show();
 }

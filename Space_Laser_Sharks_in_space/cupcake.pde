@@ -12,9 +12,9 @@ class cupcake
   void show()
   {
     stroke(255);
-    fill(255);
+    fill(45);
     ellipse(x, y, size, size);
-    rotate(a);
+    //rotate(a);
   }
   
   void update()
