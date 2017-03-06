@@ -14,7 +14,7 @@ class score
   {
     pushMatrix();
     
-    textFont(scoreFont, 32);  
+    //textFont(scoreFont, 32);  
     textAlign(RIGHT);
     textSize(size);
     fill(0);

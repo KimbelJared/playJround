@@ -1,6 +1,6 @@
 class cupcake
 {
-  float size = 10;
+  float size = 30;
   float x, y, vel = .01;
   cupcake()
   {

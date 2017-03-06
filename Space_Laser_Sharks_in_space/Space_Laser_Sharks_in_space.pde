@@ -5,7 +5,7 @@ PFont scoreFont;
 void setup() 
 {
   size(800, 600);
-  scoreFont = loadFont("Score-Font.vlw");
+  //scoreFont = loadFont("Score-Font.vlw");
   for(int i = 0; i < 25; i++)
   {
       cupcakes.add(new cupcake());
@@ -18,7 +18,6 @@ void setup()
 void draw()
 {
   background(51);
-  
   score.show();
   score.update();
   
@@ -30,4 +29,23 @@ void draw()
     currCake.update();
   } 
   shark.show();
+}
+void keyPressed() 
+{
+  if (key == CODED)
+  {
+    if(keyCode == RIGHT)
+    {
+       shark.angle = shark.angle + 1;
+    }
+
+     else if (keyCode == LEFT) 
+     {
+        shark.angle = shark.angle - 1;
+     } 
+     else
+     {
+            
+      }
+    }
 }
