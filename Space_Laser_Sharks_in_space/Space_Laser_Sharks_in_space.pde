@@ -1,55 +1,59 @@
 ArrayList<cupcake> cupcakes = new ArrayList<cupcake>();
-PImage[] cupcakeAssets = new PImage[8];
+
+ArrayList<laser> lasers = new ArrayList<laser>();
 
 shark shark;
 score score;
+gameplay gamePlay;
+hearts hearts;
+
 PFont scoreFont;
 PImage background;
 
-int i = 0;
-
-void settings() 
-{
-  fullScreen();
-}
-
-
-
 void setup() 
 {
-  //size(960, 540);
+  size(1024, 576);
+  
   scoreFont = loadFont("scoreFont.vlw");
+  background = loadImage("BG.png");
+  
+  gamePlay = new gameplay();
+  
+  shark = new shark();
+  score = new score();
+  hearts = new hearts();
+  
   for(int i = 0; i < 25; i++)
   {
       cupcakes.add(new cupcake());
-  }
-  shark = new shark();
-  score = new score();
-  
-  background = loadImage("BG.png");
-  
-  for (PImage currCake : cupcakeAssets)
-  {
-    currCake = loadImage("evil_cupcake_" + i);
-    i++;
   }
 }
 
 void draw()
 {
-  background(51);
-  //background(background);
+  //background(51);
+  background(background);
+  
   score.show();
   score.update();
   
+  hearts.show();
+  hearts.update();
+  
   translate(width/2, height/2);
+  
+  shark.show();
   
   for (cupcake currCake : cupcakes)
   {
     currCake.show();
     currCake.update();
   } 
-  shark.show();
+  for (laser currLaser : lasers)
+  {
+    currLaser.show();
+    currLaser.update();
+  }
 }
 void keyPressed() 
 {
@@ -57,16 +61,15 @@ void keyPressed()
   {
     if(keyCode == RIGHT)
     {
-       shark.angle = shark.angle + .05;
+       shark.angle = shark.angle + .075;
     }
-
-     else if (keyCode == LEFT) 
-     {
-        shark.angle = shark.angle - .05;
-     } 
-     else
-     {
-            
-      }
+    else if (keyCode == LEFT) 
+    {
+       shark.angle = shark.angle - .075;
+    } 
+    else if (keyCode == UP)
+    {
+       lasers.add(new laser());
     }
+  }
 }

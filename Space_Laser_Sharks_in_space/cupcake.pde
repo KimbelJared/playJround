@@ -1,43 +1,42 @@
 class cupcake
 {
   float size = 30;
-  float x, y, vel = .01;
+  float x, y, s, a, vel = gamePlay.vel;
   PImage asset;
   
   cupcake()
   {
-    x = random(-width/2, width/2);
-    y = random(-height/2, height/2);
-    float s = random(0,7);
-    asset = cupcakeAssets[(int)s];
+    x = random((width/2), (width/2)+size*1.5);
+    a = random(0,359);
     
+    s = random(0,7);
+    asset = loadImage("evil_cupcake_" + int(s) + ".png");
   }
   
   void show()
   {
     pushMatrix();
     
-    colorMode(RGB, 255, 255, 255);
-    noStroke();
-    fill(211, 197, 227);
-    //ellipse(x, y, size, size);
-    //image(asset, x, y);
+    imageMode(CENTER);
+    
+    rotate(int(a));
+    image(asset, int(x), y);
     
     popMatrix();
-    
   }
   
   void update()
   {
-    x = lerp(x, 0, vel);
-    y = lerp(y, 0, vel);
+    x -= vel;
     
     float d = dist(0, 0, x, y);
     
     if( d < shark.size/2)
     {
-      x = random(-width/2, width/2);
-      y = random(-height/2, height/2);
+      x = random((width/2)-size, (width/2)+size*1.5);
+      a = random(0,359);
+      
+      asset = loadImage("evil_cupcake_" + int(s) + ".png");
     } 
   }
 }

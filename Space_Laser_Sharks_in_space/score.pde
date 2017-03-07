@@ -1,13 +1,11 @@
 class score
 {
-  float size = 20;
-  float x, y;
-  int test;
-  int score = -2147483648;
+  float size, x, y, score;
   
   score()
   {
-    
+    size = 20;
+    score = 0;//-2147483648;
   }
   
   void show()
@@ -17,7 +15,7 @@ class score
     textFont(scoreFont, 32);  
     textAlign(RIGHT);
     textSize(size);
-    fill(0);
+    fill(255);
     text(score, width-size, height-size, -30); 
     
     popMatrix();
@@ -26,6 +24,6 @@ class score
   
   void update()
   {
-    
+    score += (1 * gamePlay.scoreMulti);
   }  
 }
