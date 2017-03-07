@@ -5,7 +5,7 @@ PFont scoreFont;
 void setup() 
 {
   size(800, 600);
-  //scoreFont = loadFont("Score-Font.vlw");
+  scoreFont = loadFont("scoreFont.vlw");
   for(int i = 0; i < 25; i++)
   {
       cupcakes.add(new cupcake());
@@ -36,12 +36,12 @@ void keyPressed()
   {
     if(keyCode == RIGHT)
     {
-       shark.angle = shark.angle + 1;
+       shark.angle = shark.angle + .05;
     }
 
      else if (keyCode == LEFT) 
      {
-        shark.angle = shark.angle - 1;
+        shark.angle = shark.angle - .05;
      } 
      else
      {

@@ -1,43 +1,25 @@
 class shark
 {
-  float x = 0,  y = 0, size = 20, angle = 1;
-  
+  float x = 0,  y = 0, size = 64, angle = 1;
+  PImage rest = loadImage("laser_shark_1.png");
+  PImage shoot = loadImage("laser_shark_2.png");
    void show()
    {
       pushMatrix();
-      colorMode(RGB, 255, 255, 255);
-      noStroke();
-      fill(0, 115, 252);
-      rectMode(CENTER);
       
-      rotate(PI/angle);
-      rect(x, y, size, size);
+      imageMode(CENTER);
+      
+      rotate(angle);
+      
+      image(rest, x, y);
       
       popMatrix();
    }
-  
-      void keyPressed() 
-      {
-        if (key == CODED)
-        {
-          if(keyCode == RIGHT)
-          {
-            angle = angle + 1;
-          }
-
-          else if (keyCode == LEFT) 
-          {
-             angle = angle - 1;
-          } 
-          else
-          {
-            
-          }
-        }
-        
-      }
-          
-
+   void update()
+   {
+     
+     
+   }
 }
       
      

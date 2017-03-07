@@ -2,10 +2,13 @@ class cupcake
 {
   float size = 30;
   float x, y, vel = .01;
+  PImage asset;
+  
   cupcake()
   {
     x = random(-width/2, width/2);
     y = random(-height/2, height/2);
+    
   }
   
   void show()
@@ -28,7 +31,7 @@ class cupcake
     
     float d = dist(0, 0, x, y);
     
-    if( d < shark.size)
+    if( d < shark.size/2)
     {
       x = random(-width/2, width/2);
       y = random(-height/2, height/2);
