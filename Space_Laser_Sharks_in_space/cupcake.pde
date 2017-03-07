@@ -8,6 +8,8 @@ class cupcake
   {
     x = random(-width/2, width/2);
     y = random(-height/2, height/2);
+    float s = random(0,7);
+    asset = cupcakeAssets[(int)s];
     
   }
   
@@ -18,7 +20,8 @@ class cupcake
     colorMode(RGB, 255, 255, 255);
     noStroke();
     fill(211, 197, 227);
-    ellipse(x, y, size, size);
+    //ellipse(x, y, size, size);
+    //image(asset, x, y);
     
     popMatrix();
     
