@@ -53,6 +53,8 @@ void draw()
     currLaser.show();
     currLaser.update();
   }
+  gamePlay.checkLasers();
+  
 }
 
 void keyPressed() 

@@ -26,4 +26,13 @@ class score
   {
     score += (1 * gamePlay.scoreMulti);
   }  
+  
+  void hit(cupcake thisCake, laser thisLaser)
+  {
+    score += thisCake.value;
+    
+    lasers.remove(thisLaser);
+    
+    thisCake.reset();
+  }
 }
