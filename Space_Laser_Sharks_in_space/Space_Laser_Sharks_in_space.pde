@@ -36,9 +36,15 @@ void draw()
   background(background);
   translate(width/2, height/2);
   
-  //menu.startGame();
-    
-
+  if(menu.showMenu)
+  {
+    menu.showMenu();
+  }
+  if(menu.startGame)
+  {
+    menu.startGame();
+  }
+  
 }
 
 void keyPressed() 
@@ -47,11 +53,11 @@ void keyPressed()
   {
     if(keyCode == RIGHT)
     {
-       shark.angle = shark.angle + .075;
+       shark.angle += 5;
     }
     else if (keyCode == LEFT) 
     {
-       shark.angle = shark.angle - .075;
+       shark.angle -= 5;
     } 
     else if (keyCode == UP)
     {

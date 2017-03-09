@@ -1,11 +1,12 @@
 class gameplay
 {
   float vel, scoreMulti;
-  
+  float cakeSpeed;
   gameplay()
   {
-    vel = 1;
+    cakeSpeed = .001;
     scoreMulti = 3;
+    
   }
   
   void checkLasers()
@@ -24,7 +25,7 @@ class gameplay
     }
   }
   
-  float getY(float angle, float dist)
+  float getY(float angle, float dist, int quad)
   {
     return sin(angle) * dist;
   }

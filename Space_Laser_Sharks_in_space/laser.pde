@@ -6,7 +6,7 @@ class laser
   PImage asset = loadImage("laser.png");
   laser()
   {
-    a = shark.angle;
+    a = shark.rot;
   }
   
   void show()
@@ -29,12 +29,11 @@ class laser
   
   boolean tagged(cupcake thisCake)
   {
-    float cakeTempY = gamePlay.getY(thisCake.a, thisCake.x);
-    float lasTempY = gamePlay.getY(a, x);
+    float lasTempY = gamePlay.getY(a, x, 1);
     
-    float d = dist(x, lasTempY, thisCake.x, cakeTempY);
+    float d = dist(x, lasTempY, thisCake.x, thisCake.y);
     
-    if (d < thisCake.size)
+    if (d < thisCake.size/2)
     {
       return true;
     }
