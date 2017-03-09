@@ -1,6 +1,8 @@
 class laser
 {
   float x = 32, y = 0, a, vel = 5;
+  boolean show = true;
+  
   PImage asset = loadImage("laser.png");
   laser()
   {
@@ -9,12 +11,15 @@ class laser
   
   void show()
   {
+    if(show)
+    {
     pushMatrix();
     
     rotate(a);
     image(asset, x, 0); 
     
     popMatrix();
+    }
   }
   
   void update()

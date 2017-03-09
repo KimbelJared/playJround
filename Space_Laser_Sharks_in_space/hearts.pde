@@ -14,8 +14,8 @@ class hearts
     heart2 = full;
     heart3 = full;
     
-    heartsy = height-heart1.height;
-    heart1x = heart1.width+(heart1.width/2);
+    heartsy = height/2 - 24;
+    heart1x = -width/2 + 32;
     heart2x = heart1x+(heart2.width);
     heart3x = heart2x+(heart3.width);
     

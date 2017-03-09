@@ -28,4 +28,30 @@ class gameplay
   {
     return sin(angle) * dist;
   }
+  
+  void showGUI()
+  {
+    score.show();
+    score.update();
+  
+    hearts.show();
+    hearts.update();
+  }
+  
+  void showAssets()
+  {
+    shark.show();
+    gamePlay.checkLasers();
+  
+    for (cupcake currCake : cupcakes)
+    {
+      currCake.show();
+      currCake.update();
+    } 
+    for (laser currLaser : lasers)
+    {
+      currLaser.show();
+      currLaser.update();
+    }
+  }
 }

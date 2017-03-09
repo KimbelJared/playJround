@@ -31,6 +31,8 @@ class cupcake
     if( d < shark.size/2)
     {
       reset();
+      
+      
     } 
   }
   

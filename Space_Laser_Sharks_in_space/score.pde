@@ -1,6 +1,6 @@
 class score
 {
-  float size, x, y, score;
+  float size, x = width/2-size-16, y = height/2-size-16, score;
   
   score()
   {
@@ -16,7 +16,7 @@ class score
     textAlign(RIGHT);
     textSize(size);
     fill(255);
-    text(score, width-size, height-size, -30); 
+    text(score, x, y, -30); 
     
     popMatrix();
     
@@ -31,7 +31,7 @@ class score
   {
     score += thisCake.value;
     
-    lasers.remove(thisLaser);
+    thisLaser.show = false;
     
     thisCake.reset();
   }

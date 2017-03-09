@@ -6,6 +6,7 @@ shark shark;
 score score;
 gameplay gamePlay;
 hearts hearts;
+menu menu;
 
 PFont scoreFont;
 PImage background;
@@ -22,6 +23,7 @@ void setup()
   shark = new shark();
   score = new score();
   hearts = new hearts();
+  menu = new menu();
   
   for(int i = 0; i < 25; i++)
   {
@@ -32,29 +34,11 @@ void setup()
 void draw()
 {
   background(background);
-  
-  score.show();
-  score.update();
-  
-  hearts.show();
-  hearts.update();
-  
   translate(width/2, height/2);
   
-  shark.show();
-  
-  for (cupcake currCake : cupcakes)
-  {
-    currCake.show();
-    currCake.update();
-  } 
-  for (laser currLaser : lasers)
-  {
-    currLaser.show();
-    currLaser.update();
-  }
-  gamePlay.checkLasers();
-  
+  //menu.startGame();
+    
+
 }
 
 void keyPressed() 
