@@ -31,7 +31,6 @@ void setup()
 
 void draw()
 {
-  //background(51);
   background(background);
   
   score.show();
@@ -55,6 +54,7 @@ void draw()
     currLaser.update();
   }
 }
+
 void keyPressed() 
 {
   if (key == CODED)
