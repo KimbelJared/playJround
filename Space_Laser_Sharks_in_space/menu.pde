@@ -2,6 +2,7 @@ class menu
 {
   String title = "Space Laser Sharks";
   String title2 = "In Space";
+  boolean showMenu = true, startGame = false, showScoreboard = false;
   
   String sb1 = "Joe = 9000", sb2 = "Bob = 8000", sb3 = "Rob = 7000", sb4 = "Frd = 6000", sb5 = "Mrk = 5000", ent = "Enter Name", tem = ""; 
   void startGame()
