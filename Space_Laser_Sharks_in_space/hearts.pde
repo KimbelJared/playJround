@@ -11,8 +11,8 @@ class hearts
     empty = loadImage("heart_empty.png");
     
     heart1 = full;
-    heart2 = full;
-    heart3 = full;
+    heart2 = half;
+    heart3 = empty;
     
     heartsy = height/2 - 24;
     heart1x = -width/2 + 32;

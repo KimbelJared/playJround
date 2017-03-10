@@ -25,7 +25,7 @@ void setup()
   hearts = new hearts();
   menu = new menu();
   
-  for(int i = 0; i < 25; i++)
+  for(int i = 0; i < 1; i++)
   {
       cupcakes.add(new cupcake());
   }

@@ -27,7 +27,26 @@ class gameplay
   
   float getY(float angle, float dist, int quad)
   {
-    return sin(angle) * dist;
+    if(angle <= radians(180))
+    {
+      return (sin(angle) * dist);
+    }
+    else
+    {
+      return -(sin(angle) * dist);
+    }
+  }
+  
+  float getX(float angle, float dist)
+  {
+    if(angle <= radians(90) || angle >= radians(270))
+    {
+      return (cos(angle) * dist);
+    }
+    else
+    {
+      return -(cos(angle) * dist);
+    }
   }
   
   void showGUI()
