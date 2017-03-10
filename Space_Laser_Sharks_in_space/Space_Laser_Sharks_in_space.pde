@@ -44,6 +44,10 @@ void draw()
   {
     menu.startGame();
   }
+  if(menu.showScoreboard)
+  {
+    menu.showScoreboard();
+  }
   
 }
 
@@ -63,5 +67,10 @@ void keyPressed()
     {
        lasers.add(new laser());
     }
+    
   }
+  else if (key == ENTER)
+    {
+       menu.startGame = true;
+    }
 }

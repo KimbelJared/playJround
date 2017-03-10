@@ -20,11 +20,6 @@ class score
     
     popMatrix();
     
-  }
-  
-  void update()
-  {
-    score += (1 * gamePlay.scoreMulti);
   }  
   
   void hit(cupcake thisCake, laser thisLaser)

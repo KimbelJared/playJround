@@ -49,10 +49,16 @@ class gameplay
     }
   }
   
+  void gameOver()
+  {
+    menu.showMenu = false;
+    menu.startGame = false;
+    menu.showScoreboard = true;
+  }
+  
   void showGUI()
   {
     score.show();
-    score.update();
   
     hearts.show();
     hearts.update();

@@ -32,6 +32,7 @@ class cupcake
     if( d < shark.size/2)
     {
       reset();
+      hearts.health--;
     } 
   }
   
@@ -41,12 +42,13 @@ class cupcake
     
     y = random(-height/2, height/2);
     
+    
     s = random(0,7);
     xb = random(0,2);
     yb = random(0.2);
     
     asset = loadImage("evil_cupcake_" + int(s) + ".png");
-    value = s * 2;
+    value = s;
     
     setX();
     setY();
