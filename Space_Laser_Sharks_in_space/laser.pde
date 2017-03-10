@@ -1,6 +1,6 @@
 class laser
 {
-  float x = shark.size/4, y = 0, a, vel = .5;
+  float x = shark.size/4, y = 0, a, vel = 5;
   boolean show = true;
   
   PImage asset = loadImage("laser.png");
@@ -17,9 +17,7 @@ class laser
     
     rotate(a);
     image(asset, x, 0); 
-    text(x, int(x)+20, int(y)+20);
-    float lasTempY = gamePlay.getY(a, x, 1);
-    text(lasTempY, int(x)+20, int(y)-20);
+
     popMatrix();
     }
   }
@@ -36,7 +34,7 @@ class laser
     
     float d = dist(lasTempX, lasTempY, thisCake.x, thisCake.y);
     
-    if (d < thisCake.size/2)
+    if (d < thisCake.size)
     {
       return true;
     }

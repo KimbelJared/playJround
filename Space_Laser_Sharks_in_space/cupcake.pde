@@ -17,8 +17,8 @@ class cupcake
     imageMode(CENTER);
     
     image(asset, int(x), int(y));
-    text(x, int(x)+20, int(y)+20);
-    text(y, int(x)+20, int(y)-20);
+    //text(x, int(x)+20, int(y)+20);
+    //text(y, int(x)+20, int(y)-20);
     popMatrix();
   }
   
