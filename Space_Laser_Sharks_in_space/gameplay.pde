@@ -2,11 +2,12 @@ class gameplay
 {
   float vel, scoreMulti;
   float cakeSpeed;
+  int cakesKilled;
   gameplay()
   {
     cakeSpeed = .001;
     scoreMulti = 3;
-    
+    cakesKilled = 0;
   }
   
   void checkLasers()
@@ -56,19 +57,30 @@ class gameplay
     menu.showScoreboard = true;
   }
   
+  void addCupcakes(int num)
+  {
+    for(int i = 0; i < num; i++)
+    {
+      cupcakes.add(new cupcake());
+    }  
+  }
+  
   void showGUI()
   {
     score.show();
   
     hearts.show();
     hearts.update();
+    
+    waves.show();
+    waves.update();
   }
   
   void showAssets()
   {
     shark.show();
     gamePlay.checkLasers();
-  
+    
     for (cupcake currCake : cupcakes)
     {
       currCake.show();
@@ -79,5 +91,15 @@ class gameplay
       currLaser.show();
       currLaser.update();
     }
+  }
+  
+  void reset()
+  {
+    shark.angle = 0;
+    hearts.health = 6;
+    cakesKilled = 0;
+    score.score = 0;
+    menu.showScoreboard = false;
+    cupcakes.removeAll(cupcakes);
   }
 }

@@ -48,7 +48,7 @@ class cupcake
     yb = random(0.2);
     
     asset = loadImage("evil_cupcake_" + int(s) + ".png");
-    value = s;
+    value = int(s) * 10;
     
     setX();
     setY();

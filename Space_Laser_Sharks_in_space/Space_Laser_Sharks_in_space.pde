@@ -7,6 +7,7 @@ score score;
 gameplay gamePlay;
 hearts hearts;
 menu menu;
+waves waves;
 
 PFont scoreFont;
 PImage background;
@@ -24,11 +25,9 @@ void setup()
   score = new score();
   hearts = new hearts();
   menu = new menu();
+  waves = new waves();
   
-  for(int i = 0; i < 25; i++)
-  {
-      cupcakes.add(new cupcake());
-  }
+  gamePlay.addCupcakes(50);
 }
 
 void draw()
@@ -71,6 +70,15 @@ void keyPressed()
   }
   else if (key == ENTER)
     {
-       menu.startGame = true;
+      if(menu.showScoreboard)
+      {
+        gamePlay.reset();
+      }
+      
+      menu.startGame = true;
+    }
+  else if(menu.showScoreboard)
+    {
+      menu.tem += key;
     }
 }

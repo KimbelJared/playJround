@@ -16,7 +16,7 @@ class score
     textAlign(RIGHT);
     textSize(size);
     fill(255);
-    text(score, x, y, -30); 
+    text(int(score), x, y, -30); 
     
     popMatrix();
     
@@ -27,7 +27,7 @@ class score
     score += thisCake.value;
     
     thisLaser.show = false;
-    
+    gamePlay.cakesKilled++;
     thisCake.reset();
   }
 }
