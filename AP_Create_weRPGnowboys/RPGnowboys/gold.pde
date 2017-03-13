@@ -9,7 +9,9 @@ class gold
   
   void show()
   {
+    pushStyle();
     
+    popStyle();
   }
   
   void update()

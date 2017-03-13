@@ -9,7 +9,9 @@ class health
   
   void show()
   {
+    pushStyle();
     
+    popStyle();
   }
   
   void update()
