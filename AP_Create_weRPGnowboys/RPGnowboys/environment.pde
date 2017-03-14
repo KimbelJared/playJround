@@ -19,10 +19,16 @@ class environment
     sunW = 80; 
     sunH = sunW;
     
-    for(int i = 0; i < 3; i++)
+    for(int i = 0; i < 4; i++)
     {
       trees.add(new tree());
-    }  
+    }
+    for(int i = 0; i < 5; i++)
+    {
+      grassL.add(new grass());
+    }
+    
+    
   }
   
   void showGround()
@@ -55,5 +61,14 @@ class environment
       currTree.show();
       currTree.update();
     } 
+  }
+  
+  void showGrass()
+  {
+    for (grass currGra : grassL)
+    {
+      currGra.show();
+      currGra.update();
+    }
   }
 }

@@ -2,12 +2,20 @@ gold gold;
 health health;
 player player;
 environment env;
+
+float vel = 3;
+
+PImage grass;
+
 ArrayList<tree> trees = new ArrayList<tree>();
+ArrayList<grass> grassL = new ArrayList<grass>();
 
 void setup() 
 {
   
   size(1024, 576);
+  
+  grass = loadImage("grass.png");
   
   gold = new gold();
   health = new health();
@@ -22,8 +30,10 @@ void draw()
   noStroke();
   background(#2B7EE0);
   
-  player.show();
   env.showGround();
   env.showSun();
   env.showTrees();
+  env.showGrass();
+  
+  player.show();
 }

@@ -1,16 +1,17 @@
-class tree
+class grass
 {
   float x, y, w, h;
-  
-  tree()
+  PImage im;
+  grass()
   {
     init();
+    im = grass;
   }
   
   void init()
   {
-    w = 32;
-    h = 96;
+    w = 64;
+    h = 32;
     x = int(random(width/2, width));
     y = height/8-(h/2);
   }
@@ -19,9 +20,8 @@ class tree
   {
     pushStyle();
     
-    fill(#5D3815);
-    rectMode(CENTER);
-    rect(x, y, w, h);
+    imageMode(CENTER);
+    image(im, x, y, w, h);
     
     popStyle();
   }
