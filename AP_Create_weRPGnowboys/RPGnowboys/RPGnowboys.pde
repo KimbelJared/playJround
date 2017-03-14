@@ -36,4 +36,6 @@ void draw()
   env.showGrass();
   
   player.show();
+  health.show();
+  gold.show();
 }

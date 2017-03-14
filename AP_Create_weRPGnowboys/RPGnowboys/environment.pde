@@ -23,7 +23,7 @@ class environment
     {
       trees.add(new tree());
     }
-    for(int i = 0; i < 5; i++)
+    for(int i = 0; i < 15; i++)
     {
       grassL.add(new grass());
     }

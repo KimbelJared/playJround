@@ -4,7 +4,10 @@ class grass
   PImage im;
   grass()
   {
-    init();
+    w = 64;
+    h = 32;
+    x = int(random(-width/2, width/2));
+    y = int(random(height/8, height/2));
     im = grass;
   }
   
@@ -12,8 +15,8 @@ class grass
   {
     w = 64;
     h = 32;
-    x = int(random(width/2, width));
-    y = height/8-(h/2);
+    x = int(random(width/2, width/2+width/3));
+    y = int(random(height/8, height/2));
   }
   
   void show()
@@ -29,7 +32,7 @@ class grass
   void update()
   {
     x -= vel;
-    if(x <= -width/2)
+    if(x+w/2 <= -width/2)
     {
       init();
     }
