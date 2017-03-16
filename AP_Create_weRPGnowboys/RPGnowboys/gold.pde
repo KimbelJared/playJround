@@ -2,11 +2,11 @@ class gold
 {
   float x, y, size;
   int gold, buffer;
-  String dis = "Gold: ";
+  String dis = "Gold : ";
   gold()
   {
     buffer = 58;
-    x = -width/2+buffer;
+    x = -width/2+24;
     y = -height/2+buffer;
     gold = 5;
   }
@@ -17,7 +17,7 @@ class gold
     
     fill(#E8CD31);
     textSize(16);
-    textAlign(CENTER, CENTER);
+    textAlign(LEFT, CENTER);
 
     text(dis + gold, x, y);
     

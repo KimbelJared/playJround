@@ -2,6 +2,8 @@ gold gold;
 health health;
 player player;
 environment env;
+shop shop;
+inv inv;
 
 float vel = 3;
 
@@ -21,7 +23,8 @@ void setup()
   health = new health();
   env = new environment();
   player = new player();
-
+  shop = new shop();
+  inv = new inv();  
 }
 
 void draw()
@@ -38,4 +41,32 @@ void draw()
   player.show();
   health.show();
   gold.show();
+}
+
+void keyPressed()
+{
+  if (key == ' ') 
+  {
+    //player.attack();
+    health.updateHealth(-1);
+  }
+  
+  if( key == CODED)
+  {
+    if (keyCode == UP)
+    {
+      //shop.open();
+      shop.incHealth();
+    }
+    if (keyCode == DOWN)
+    {
+      inv.usePotion();
+    }
+  }
+  
+  else
+  {
+    
+  }
+  
 }
