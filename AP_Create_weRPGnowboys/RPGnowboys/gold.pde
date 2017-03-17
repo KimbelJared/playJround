@@ -24,8 +24,23 @@ class gold
     popStyle();
   }
   
-  void update()
+  boolean canBuy(int p)
   {
-    
+    switch(p) 
+    {
+      case 1: 
+        if(gold >= shop.IH_price)
+        {
+          return true;
+        }
+        break;
+      case 2:
+        if(gold >= shop.IA_price)
+        {
+          return true;
+        }
+        break;
+    }
+    return false;
   }
 }

@@ -41,6 +41,7 @@ void draw()
   player.show();
   health.show();
   gold.show();
+  shop.show();
 }
 
 void keyPressed()
@@ -55,12 +56,19 @@ void keyPressed()
   {
     if (keyCode == UP)
     {
-      //shop.open();
-      shop.incHealth();
+      shop.open();
     }
     if (keyCode == DOWN)
     {
+      shop.close();
+    }
+    if (keyCode == LEFT)
+    {
       inv.usePotion();
+    }
+    if (keyCode == RIGHT)
+    {
+      shop.incHp();
     }
   }
   
