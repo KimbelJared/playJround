@@ -1,6 +1,6 @@
 class health
 {
-  int max_health, cur_health;
+  int max_health, cur_health, regenRate, sec;
   float startX, startY, endX, endY;
   float hb_startX, hb_startY, hb_endX, hb_endY, hb_w;
   float textX, textY;
@@ -23,9 +23,11 @@ class health
     
     max_health = 10;
     cur_health = 10;
+    regenRate = 0;
+    sec = 0;
     
     textX = -width/2+24;
-    textY = -height/2+16+h/4;
+    textY = -height/2+24;
     
   }
   
@@ -33,6 +35,7 @@ class health
   {
     pushStyle();
     
+    healthRegen();
     
     fill(51, 100);
     quad(startX, startY, startX, startY+h, endX, endY+h, endX, endY);
@@ -60,7 +63,21 @@ class health
     text(dis + cur_health, textX, textY);
     popStyle();
   }
-  
+  void healthRegen()
+  {
+    if(regenRate > 0)
+    {
+      if(frameCount % 60 == 0)
+      {
+        sec++;
+        if(sec >= 5)
+        {
+          updateHealth(1 * regenRate);
+          sec = 0;
+        }
+      }
+    }
+  }
   void updateHealth(int f)
   {
     if (cur_health <= 0)

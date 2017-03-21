@@ -2,13 +2,14 @@ class shop
 {
   float ICON_X = -width/4+50, ICON_Y = -height/4+50;
   
-  int IH_price, IA_price;
+  int IH_price, IA_price, IR_price;
   float windowW= width/2, windowH = height/2, windowX, windowY;
   boolean show_shop;
   shop()
   {
     IH_price = 5;
     IA_price = 5;
+    IR_price = 50;
   }
   
   void open()
@@ -35,10 +36,13 @@ class shop
       
       disHpInc();
       disAtInc();
-      
+      check();
     }
   }
-  
+  void check()
+  {
+    
+  }
   void disHpInc()
   {
       float a;
@@ -95,6 +99,28 @@ class shop
       gold.gold -= IH_price;
       health.max_health += 5;
       inv.restore = health.max_health / 10;
+      IH_price += (IH_price/2);
+    }
+    
+  }
+  
+  void incAt()
+  {
+    boolean canBuy = gold.canBuy(2);
+    if(canBuy)
+    {
+      gold.gold -= IA_price;
+    }
+    
+  }
+  
+  void incHR()
+  {
+    boolean canBuy = gold.canBuy(3);
+    if(canBuy)
+    {
+      gold.gold -= IR_price;
+      health.regenRate++;
     }
     
   }

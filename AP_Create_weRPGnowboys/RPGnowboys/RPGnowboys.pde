@@ -1,3 +1,4 @@
+attack attack;
 gold gold;
 health health;
 player player;
@@ -21,6 +22,7 @@ void setup()
   
   gold = new gold();
   health = new health();
+  attack = new attack();
   env = new environment();
   player = new player();
   shop = new shop();
@@ -39,9 +41,12 @@ void draw()
   env.showGrass();
   
   player.show();
+  attack.show();
   health.show();
   gold.show();
   shop.show();
+  
+  text(health.regenRate, 0, 0);
 }
 
 void keyPressed()
@@ -65,16 +70,18 @@ void keyPressed()
     if (keyCode == LEFT)
     {
       inv.usePotion();
+      //shop.incHR();
     }
     if (keyCode == RIGHT)
     {
       shop.incHp();
     }
-  }
-  
-  else
+  }  
+}
+
+void mouseClicked()
+{
+  if(shop.show_shop)
   {
-    
   }
-  
 }
