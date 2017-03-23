@@ -63,6 +63,7 @@ class health
     text(dis + cur_health, textX, textY);
     popStyle();
   }
+  
   void healthRegen()
   {
     if(regenRate > 0)
@@ -78,13 +79,10 @@ class health
       }
     }
   }
+  
   void updateHealth(int f)
   {
-    if (cur_health <= 0)
-    {
-      vel = 0;
-    }
-    else if (f < 0)
+    if (f < 0)
     {
       cur_health += f;
     }
@@ -98,6 +96,11 @@ class health
       {
         cur_health += f;
       }
+    }
+    
+    if (cur_health <= 0)
+    {
+      player.ded();
     }
   }  
 }

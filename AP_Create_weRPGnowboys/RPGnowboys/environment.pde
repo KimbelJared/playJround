@@ -5,6 +5,7 @@ class environment
   float sunX, sunY, sunW, sunH;
   int grass = #155A05;
   int sun = #EAEA2F;
+  
   environment()
   {
     groundX = -width/2;

@@ -1,10 +1,11 @@
 class shop
 {
-  float ICON_X = -width/4+50, ICON_Y = -height/4+50;
+  int ICON_X = -width/4+50, ICON_Y = -height/4+50;
   
   int IH_price, IA_price, IR_price;
-  float windowW= width/2, windowH = height/2, windowX, windowY;
+  float windowW = width/2, windowH = height/2, windowX, windowY;
   boolean show_shop;
+  
   shop()
   {
     IH_price = 5;
@@ -35,19 +36,32 @@ class shop
       popStyle();
       
       disHpInc();
-      disAtInc();
-      check();
+      //disAtInc();
+      //disHRInc();
     }
   }
-  void check()
+  
+  boolean check(int x, int y)
   {
-    
+    float d = dist(x, y, menu.clickedX, menu.clickedY);
+    text(d, 0, 50);
+    text(x, 0, -100);
+    text(y, 0, -120);
+    if(d <= 50)
+    {
+      return true;
+    }
+    else
+    {
+      return false;
+    }
   }
+  
   void disHpInc()
   {
       float a;
       boolean canBuy = gold.canBuy(1);
-      float x = ICON_X, y = ICON_Y;
+      int x = ICON_X, y = ICON_Y;
       
       if(canBuy)
       {
@@ -65,13 +79,21 @@ class shop
       rect(x, y, 50, 50);
     
       popStyle();
+      
+      boolean playBuy = check(x, y);
+      
+      if(playBuy)
+      {
+        incHp();
+      }
+      
   }
   
-  void disAtInc()
+  void disHRInc()
   {
       float a;
       boolean canBuy = gold.canBuy(2);
-      float x = ICON_X, y = ICON_Y + 75;
+      int x = ICON_X, y = ICON_Y + 75;
       
       if(canBuy)
       {
@@ -87,8 +109,46 @@ class shop
       fill(#00FF00, a);
       rectMode(CENTER);
       rect(x, y, 50, 50);
-    
+      
       popStyle();
+      
+      boolean playBuy = check(x, y);
+      
+      if(playBuy)
+      {
+        incHR();
+      }
+  }
+  
+  void disAtInc()
+  {
+      float a;
+      boolean canBuy = gold.canBuy(2);
+      int x = ICON_X, y = ICON_Y + 150;
+      
+      if(canBuy)
+      {
+        a = 200;
+      }
+      else
+      {
+        a = 100;
+      }
+      
+      pushStyle();
+      
+      fill(#009BFF, a);
+      rectMode(CENTER);
+      rect(x, y, 50, 50);
+      
+      popStyle();
+      
+      boolean playBuy = check(x, y);
+      
+      if(playBuy)
+      {
+        incAt();
+      }
   }
   
   void incHp()

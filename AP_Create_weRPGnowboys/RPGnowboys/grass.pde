@@ -2,6 +2,7 @@ class grass
 {
   float x, y, w, h;
   PImage im;
+  
   grass()
   {
     w = 64;
@@ -32,6 +33,7 @@ class grass
   void update()
   {
     x -= vel;
+    
     if(x+w/2 <= -width/2)
     {
       init();

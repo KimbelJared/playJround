@@ -5,6 +5,7 @@ player player;
 environment env;
 shop shop;
 inv inv;
+menu menu;
 
 float vel = 3;
 
@@ -20,6 +21,7 @@ void setup()
   
   grass = loadImage("grass.png");
   
+  menu = new menu();
   gold = new gold();
   health = new health();
   attack = new attack();
@@ -46,7 +48,8 @@ void draw()
   gold.show();
   shop.show();
   
-  text(health.regenRate, 0, 0);
+  text(menu.clickedY, 0, -20);
+  text(menu.clickedX, 0, -40);
 }
 
 void keyPressed()
@@ -70,18 +73,15 @@ void keyPressed()
     if (keyCode == LEFT)
     {
       inv.usePotion();
-      //shop.incHR();
     }
     if (keyCode == RIGHT)
     {
-      shop.incHp();
+      
     }
   }  
 }
 
 void mouseClicked()
 {
-  if(shop.show_shop)
-  {
-  }
+  menu.updateClickCoord(mouseX, mouseY);
 }

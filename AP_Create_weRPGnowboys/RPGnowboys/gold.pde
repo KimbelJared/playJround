@@ -1,10 +1,11 @@
 class gold
 {
-  float x, y, size;
+  float x, y, w, h, size;
   float startX, startY, endX, endY;
+  float gd_startX, gd_startY, gd_endX, gd_endY, gd_w;
   int gold;
-  float w, h;
   String dis = "Gold : ";
+  
   gold()
   {
     x = -width/2+24;
@@ -21,6 +22,8 @@ class gold
     endX = startX + w;
     endY = startY;
     
+    gd_startX = startX;
+    gd_startY = startY;
     
   }
   
@@ -28,9 +31,22 @@ class gold
   {
     pushStyle();
     
-    fill(#FFCD00);
+    fill(51, 100);
     quad(startX, startY, startX, startY+h, endX, endY+h, endX, endY);
  
+    popStyle();
+    
+    pushStyle();
+    
+    fill(#FFCD00);
+    
+    gd_w = map(gold, 0, 999, 0, w);
+    
+    gd_endX = gd_startX + gd_w;
+    gd_endY = gd_startY;
+    
+    quad(gd_startX, gd_startY, gd_startX, gd_startY+h, gd_endX, gd_endY+h, gd_endX, gd_endY);
+    
     popStyle();
     
     pushStyle();

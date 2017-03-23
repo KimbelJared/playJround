@@ -20,8 +20,9 @@ class player
     popStyle();
   }
   
-  void update()
+  void ded()
   {
+    vel = 0;
     
   }
 }

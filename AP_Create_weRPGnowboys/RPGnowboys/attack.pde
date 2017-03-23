@@ -5,6 +5,7 @@ class attack
   float textX, textY;
   float w, h;
   String dis = "Attack : ";
+  
   attack()
   {
     at = 5;
