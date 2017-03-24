@@ -1,6 +1,7 @@
 class inv
 {
   int potions, restore;
+  
   inv()
   {
     potions = 2;

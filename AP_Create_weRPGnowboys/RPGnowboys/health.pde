@@ -6,6 +6,7 @@ class health
   float textX, textY;
   float w, h, buffer;
   String dis = "HP : ";
+  
   health()
   {
     buffer = 10;

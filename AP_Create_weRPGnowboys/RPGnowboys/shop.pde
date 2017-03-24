@@ -1,8 +1,8 @@
 class shop
 {
-  int ICON_X = -width/4+50, ICON_Y = -height/4+50;
+  int ICON_X = -width/4+50, ICON_Y = -height/4+36;
   
-  int IH_price, IA_price, IR_price;
+  int IH_price, IA_price, IR_price, HP_price;
   float windowW = width/2, windowH = height/2, windowX, windowY;
   boolean show_shop;
   
@@ -11,16 +11,19 @@ class shop
     IH_price = 5;
     IA_price = 5;
     IR_price = 50;
+    HP_price = 10;
   }
   
   void open()
   {
     show_shop = true;
+    menu.resetMouse();
   }
   
   void close()
   {
     show_shop = false;
+    menu.resetMouse();
   }
   
   void show()
@@ -35,18 +38,32 @@ class shop
     
       popStyle();
       
+      drawLines();
       disHpInc();
-      //disAtInc();
-      //disHRInc();
+      disAtInc();
+      disHRInc();
+      disHpPot();
     }
+  }
+  
+  void drawLines()
+  {
+    int x = ICON_X, y = ICON_Y + 180; 
+    
+    pushStyle();
+    
+    strokeWeight(3);
+    stroke(51);
+    
+    line(x, y, x + (windowW - 100), y);
+    
+    popStyle();
   }
   
   boolean check(int x, int y)
   {
     float d = dist(x, y, menu.clickedX, menu.clickedY);
-    text(d, 0, 50);
-    text(x, 0, -100);
-    text(y, 0, -120);
+    
     if(d <= 50)
     {
       return true;
@@ -80,11 +97,18 @@ class shop
     
       popStyle();
       
+      pushStyle();
+      
+      text("Increase Health", x + 50, y);
+      
+      popStyle();
+      
       boolean playBuy = check(x, y);
       
       if(playBuy)
       {
         incHp();
+        menu.resetMouse();
       }
       
   }
@@ -92,8 +116,8 @@ class shop
   void disHRInc()
   {
       float a;
-      boolean canBuy = gold.canBuy(2);
-      int x = ICON_X, y = ICON_Y + 75;
+      boolean canBuy = gold.canBuy(3);
+      int x = ICON_X, y = ICON_Y + 72;
       
       if(canBuy)
       {
@@ -112,11 +136,18 @@ class shop
       
       popStyle();
       
+      pushStyle();
+      
+      text("Increase Health Regen", x + 50, y);
+      
+      popStyle();
+      
       boolean playBuy = check(x, y);
       
       if(playBuy)
       {
         incHR();
+        menu.resetMouse();
       }
   }
   
@@ -124,7 +155,7 @@ class shop
   {
       float a;
       boolean canBuy = gold.canBuy(2);
-      int x = ICON_X, y = ICON_Y + 150;
+      int x = ICON_X, y = ICON_Y + 144;
       
       if(canBuy)
       {
@@ -143,11 +174,56 @@ class shop
       
       popStyle();
       
+      pushStyle();
+      
+      text("Increase Attack", x + 50, y);
+      
+      popStyle();
+      
       boolean playBuy = check(x, y);
       
       if(playBuy)
       {
         incAt();
+        menu.resetMouse();
+      }
+  }
+  
+  void disHpPot()
+  {
+      float a;
+      boolean canBuy = gold.canBuy(4);
+      int x = ICON_X, y = ICON_Y + 216;
+      
+      if(canBuy)
+      {
+        a = 200;
+      }
+      else
+      {
+        a = 100;
+      }
+      
+      pushStyle();
+      
+      fill(#D931FF, a);
+      rectMode(CENTER);
+      rect(x, y, 50, 50);
+      
+      popStyle();
+      
+      pushStyle();
+      
+      text("Purchase Health Potion", x + 50, y);
+      
+      popStyle();
+      
+      boolean playBuy = check(x, y);
+      
+      if(playBuy)
+      {
+        incAt();
+        menu.resetMouse();
       }
   }
   
@@ -170,6 +246,8 @@ class shop
     if(canBuy)
     {
       gold.gold -= IA_price;
+      attack.at += 5;
+      IA_price += (IA_price/2);
     }
     
   }
@@ -180,6 +258,7 @@ class shop
     if(canBuy)
     {
       gold.gold -= IR_price;
+      IR_price *= 2;
       health.regenRate++;
     }
     

@@ -48,8 +48,6 @@ void draw()
   gold.show();
   shop.show();
   
-  text(menu.clickedY, 0, -20);
-  text(menu.clickedX, 0, -40);
 }
 
 void keyPressed()

@@ -14,7 +14,7 @@ class gold
     w = 160;
     h = 32;
     
-    gold = 5;
+    gold = 500;
     
     startX = -width/2+10;
     startY = -height/2+94;
@@ -78,6 +78,11 @@ class gold
         break;
       case 3:
         if(gold >= shop.IR_price)
+        {
+          return true;
+        }
+      case 4:
+        if(gold >= shop.HP_price)
         {
           return true;
         }
