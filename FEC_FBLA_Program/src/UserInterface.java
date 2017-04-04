@@ -18,15 +18,21 @@ import java.util.*;
 
 public class UserInterface implements ActionListener
 {
-    public JPanel backPanel, buttonPanel, textNamePanel;
+    private JFrame theFrame;
 
-    public JLabel title;
+    private JPanel backPanel, buttonPanel, textNamePanel, employeePanel;
+
+    private JLabel title;
 
     private JButton employees, customers, back;
 
-    public ActionListener employeeButton;
-    public ActionListener customerButton;
-    public ActionListener backButton;
+    private JButton add, rem;
+
+    private JComboBox allEmployees;
+
+    private ActionListener employeeButton, customerButton, backButton;
+
+    private ActionListener addButton, remButton;
 
     public static void main(String[] args)
     {
@@ -42,7 +48,7 @@ public class UserInterface implements ActionListener
 //////  Gui stuff \/
 
         //Make frame
-        JFrame theFrame = new JFrame();
+        theFrame = new JFrame();
         theFrame.setTitle("Jefferson Family Entertainment Center");
         theFrame.setLocation(200, 300);
         theFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -57,24 +63,6 @@ public class UserInterface implements ActionListener
         //Border
         Border border = BorderFactory.createEmptyBorder(10,10,10,10);
         mainPanel.setBorder(border);
-
-//////  Back Button Panel
-
-        //Back panel
-        backPanel = new JPanel();
-
-        //Button
-        back = new JButton("Back");
-
-        //Action Listeners
-        back.addActionListener(backButton);
-
-        //Buttons to panel
-        backPanel.add(back);
-
-        //Panel to mainFrame
-        theFrame.add(backPanel);
-        backPanel.setVisible(false);
 
 //////  Main Menu \/
 
@@ -104,6 +92,48 @@ public class UserInterface implements ActionListener
         theFrame.add(textNamePanel);
         theFrame.add(buttonPanel);
 
+//////  Employee Panel
+
+        //Panel
+        employeePanel = new JPanel();
+
+        //Text Area
+        allEmployees = new JComboBox<>();
+
+        //Buttons
+        add = new JButton("Add");
+        rem = new JButton("Remove");
+
+        //Action Listeners
+        add.addActionListener(addButton);
+        rem.addActionListener(remButton);
+        //Buttons to panel
+        employeePanel.add(allEmployees);
+        employeePanel.add(add);
+        employeePanel.add(rem);
+
+        //panel to mainFrame
+        theFrame.add(employeePanel);
+        employeePanel.setVisible(false);
+
+//////  Back Button Panel
+
+        //Back panel
+        backPanel = new JPanel();
+
+        //Button
+        back = new JButton("Back");
+
+        //Action Listeners
+        back.addActionListener(backButton);
+
+        //Buttons to panel
+        backPanel.add(back);
+
+        //Panel to mainFrame
+        theFrame.add(backPanel);
+        backPanel.setVisible(false);
+
 //////
 
         //Make Visible
@@ -118,7 +148,13 @@ public class UserInterface implements ActionListener
         {
             public void actionPerformed(ActionEvent e)
             {
+                backPanel.setVisible(true);
+                textNamePanel.setVisible(false);
+                buttonPanel.setVisible(false);
 
+                employeePanel.setVisible(true);
+
+                theFrame.pack();
             }
         };
 
@@ -126,11 +162,39 @@ public class UserInterface implements ActionListener
         {
             public void actionPerformed(ActionEvent e)
             {
+                backPanel.setVisible(true);
+                textNamePanel.setVisible(false);
+                buttonPanel.setVisible(false);
 
+                employeePanel.setVisible(false);
+
+                theFrame.pack();
             }
         };
 
         backButton = new ActionListener()
+        {
+            public void actionPerformed(ActionEvent e)
+            {
+                backPanel.setVisible(false);
+                textNamePanel.setVisible(true);
+                buttonPanel.setVisible(true);
+
+                employeePanel.setVisible(false);
+
+                theFrame.pack();
+            }
+        };
+
+        addButton = new ActionListener()
+        {
+            public void actionPerformed(ActionEvent e)
+            {
+
+            }
+        };
+
+        remButton = new ActionListener()
         {
             public void actionPerformed(ActionEvent e)
             {
