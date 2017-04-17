@@ -86,6 +86,10 @@ class health
     if (f < 0)
     {
       cur_health += f;
+      if (cur_health <= 0)
+      {
+        player.ded();
+      }
     }
     else if (f > 0)
     {
@@ -97,11 +101,6 @@ class health
       {
         cur_health += f;
       }
-    }
-    
-    if (cur_health <= 0)
-    {
-      player.ded();
     }
   }  
 }
