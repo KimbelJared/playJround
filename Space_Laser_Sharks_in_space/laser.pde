@@ -12,15 +12,13 @@ class laser
   
   void show()
   {
-    if(show)
-    {
     pushMatrix();
     
     rotate(a);
     image(asset, x, 0); 
 
     popMatrix();
-    }
+    
   }
   
   void update()

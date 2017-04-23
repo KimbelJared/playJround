@@ -5,7 +5,7 @@ class gameplay
   int cakesKilled;
   gameplay()
   {
-    cakeSpeed = .001;
+    cakeSpeed = .003;
     scoreMulti = 3;
     cakesKilled = 0;
   }

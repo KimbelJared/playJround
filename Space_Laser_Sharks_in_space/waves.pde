@@ -33,8 +33,8 @@ class waves
   void nextWave()
   {
     currentWave++;
-    killsToNext = (killsToNext * 3) + 5;
-    gamePlay.addCupcakes(5);
+    killsToNext = (killsToNext * 3/2) + 5;
+    gamePlay.addCupcakes(currentWave * 7);
     
     disp = updateText(currentWave);
     show = true;
