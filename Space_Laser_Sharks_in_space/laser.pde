@@ -42,26 +42,5 @@ class laser
         return false;
       }
 
-  }
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
+  }  
 }
